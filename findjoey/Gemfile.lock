@@ -39,8 +39,6 @@ GEM
     minitest (5.14.0)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    mysql2 (0.5.3)
-    mysql2 (0.5.3-x64-mingw32)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
     nokogiri (1.10.9-x64-mingw32)
@@ -89,6 +87,7 @@ GEM
     sinatra-activerecord (2.0.14)
       activerecord (>= 3.2)
       sinatra (>= 1.0)
+    sqlite3 (1.4.2)
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -113,7 +112,6 @@ DEPENDENCIES
   activerecord (~> 5.2, >= 5.2.0)
   bcrypt
   capybara
-  mysql2
   pry
   rack-test
   rake
@@ -122,6 +120,7 @@ DEPENDENCIES
   shotgun
   sinatra
   sinatra-activerecord
+  sqlite3
   thin
   tux
 
