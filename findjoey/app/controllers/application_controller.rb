@@ -1,3 +1,5 @@
+require 'sinatra'
+require 'mysql2'
 require './config/environment'
 
 class ApplicationController < Sinatra::Base

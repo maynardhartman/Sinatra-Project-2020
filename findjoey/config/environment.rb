@@ -1,11 +1,18 @@
-ENV['SINATRA_ENV'] ||= "development"
+# frozen_string_literal: true
+
+ENV['SINATRA_ENV'] ||= 'development'
 
 require 'bundler/setup'
+
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
 ActiveRecord::Base.establish_connection(
-  :adapter => "sqlite3",
-  :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
+  adapter: 'mysql2',
+  database: 'world',
+  port: '3306',
+  host: '127.0.0.1',
+  username: 'root',
+  passowrd: 'QsPJJ4980T2T'
 )
 
 require './app/controllers/application_controller'
