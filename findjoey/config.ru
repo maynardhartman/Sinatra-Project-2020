@@ -1,5 +1,3 @@
-require 'active_record'
-
 require './config/environment'
 
 if ActiveRecord::Migrator.needs_migration?
@@ -7,4 +5,3 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 run ApplicationController
-#don't forget to add use here
