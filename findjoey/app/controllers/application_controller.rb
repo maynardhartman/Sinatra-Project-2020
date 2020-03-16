@@ -1,16 +1,15 @@
+# frozen_string_literal: true
+
 require 'sinatra'
-require 'mysql2'
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
   end
 
-  get "/" do
+  get '/' do
     erb :welcome
   end
-
 end
