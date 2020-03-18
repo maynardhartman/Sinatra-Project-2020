@@ -1,18 +1,22 @@
 # frozen_string_literal: true
 
-class CreatePetsTable < ActiveRecord::Migration[5.2]
+class CreatePets < ActiveRecord::Migration[5.2]
   def change
-    create_table :pets do |p| (p.integer :id
-      p.string :pet_name
-      p.string :pet_breed
-      p.integer :pet_weight
-      p.string :pet_temperament
-      p.boolean :pet_chipped
-      p.boolean :pet_collared
-      p.string :pet_chip_id
-      p.string :pet_color
-      p.datetime :pet_went_missing
-      p.datetime :pet_date_found
-      p.timestamps)     end
+    create_table :pets do |t|
+      t.string :name
+      t.string :breed
+      t.integer :weight
+      t.string :pet_temperament
+      t.boolean :pet_chiped
+      t.string :pet_chip_id
+      t.boolean :pet_collared
+      t.string :pet_color
+      t.datetime :pet_went_missing
+      t.datetime :date_found
+      t.string :pet_images
+
+      t.timestamps
+    end
+    add_index :pet_chip_id
   end
 end
