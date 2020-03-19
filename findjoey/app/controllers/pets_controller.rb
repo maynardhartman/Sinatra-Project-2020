@@ -1,3 +1,4 @@
-class Pet < Sinatra::Base
+require 'sinatra'
+class Pets < Sinatra::Base
   
 end
