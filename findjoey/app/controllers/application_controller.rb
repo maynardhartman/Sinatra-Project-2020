@@ -1,9 +1,9 @@
 # frozen_string_literal: true
-
 require 'sinatra'
-require './config/environment.rb"
+require './config/environment.rb'
+
 class ApplicationController < Sinatra::Base
-  configure do
+  configure do 
     set :public_folder, 'public'
     set :views, 'app/views'
   end

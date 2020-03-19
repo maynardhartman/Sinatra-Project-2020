@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\findjoey",
+    "\\findjoey\\app",
+    "\\findjoey\\app\\controllers",
+    "\\findjoey\\db",
+    "\\findjoey\\db\\migrate",
+    "\\findjoey\\public",
+    "\\findjoey\\public\\materialize",
+    "\\findjoey\\public\\materialize\\css",
+    "\\findjoey\\public\\materialize\\js"
+  ],
+  "SelectedNode": "\\findjoey\\app\\controllers\\application_controller.rb",
+  "PreviewInSolutionExplorer": false
+}

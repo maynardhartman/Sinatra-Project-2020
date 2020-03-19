@@ -1,2 +1,3 @@
-class Pets < Sinatra::Base
+class Pet < Sinatra::Base
+  
 end
