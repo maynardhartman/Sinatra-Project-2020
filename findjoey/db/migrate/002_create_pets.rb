@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class CreatePets < ActiveRecord::Migration[5.2]
   def change
-    create_table :pets do |t|
+    create_table :pet do |t|
       t.string :name
       t.string :breed
       t.integer :weight
@@ -13,9 +13,8 @@ class CreatePets < ActiveRecord::Migration[5.2]
       t.datetime :pet_went_missing
       t.datetime :date_found
       t.string :pet_images
-      t.integer :owner_di
+      t.integer :owner_id
       t.timestamps
     end
-    add_index :pet_chip_id
   end
 end
