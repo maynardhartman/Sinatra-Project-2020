@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class CreatePets < ActiveRecord::Migration[5.2]
   def change
-    create_table :pet do |t|
+    create_table :pets do |t|
       t.string :name
       t.string :breed
       t.integer :weight

@@ -9,8 +9,8 @@ Bundler.require(:default, ENV["SINATRA_ENV"])
 ActiveRecord::Base.establish_connection(
   adapter: "mysql2",
   database: "world",
-  host: "localhost",
-  username: "root",
+  host: "127.0.0.1",
+  username: "MJHAR",
   password: "QsPJJ4980T2T"
 )
 
