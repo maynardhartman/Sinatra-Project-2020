@@ -12,9 +12,11 @@ gem "require_all"
 gem "shotgun"
 gem "bcrypt"
 gem "sqlite3"
-gem 'mysql2'
+gem "mysql2"
 gem "thin"
 gem "tux"
+gem "thor"
+gem "corneal"
 
 group :test do
   gem "capybara"
