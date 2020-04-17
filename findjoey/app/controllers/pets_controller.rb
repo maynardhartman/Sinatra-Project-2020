@@ -1,4 +1,2 @@
-require 'sinatra'
-class Pets < Sinatra::Base
-  
+class Pets < ApplicationController
 end

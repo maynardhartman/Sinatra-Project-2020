@@ -1,3 +1,2 @@
-require 'sinatra'
-class Users < Sinatra::Base 
+class Users < ApplicationController
 end
