@@ -11,7 +11,7 @@ ActiveRecord::Base.establish_connection(
   database: "world",
   host: "127.0.0.1",
   username: "MJHAR",
-  password: "QsPJJ4980T2T"
+  password: "QsPJJ4980T2T",
 )
 
 require "./app/controllers/application_controller"
