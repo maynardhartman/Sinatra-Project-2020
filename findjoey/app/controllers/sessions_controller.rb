@@ -8,19 +8,20 @@ class SessionsController < ApplicationController
   end
 
   get "/sessions/login" do
-    erb :"/login"
+    erb :"/sessions/login"
   end
 
-  post "/login" do
+  post "/sessions/login" do
     #find the user in db
-    user = User.find_by(user_email: params[:email])
-
+    user = User.find_by(user_email: params[:user_email])
+    binding.pry
+    if user == nil
+      redirect "/session/login"
+    end
     # check the password
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect "/pets"
-    else
-      redirect "/login"
     end
   end
 end

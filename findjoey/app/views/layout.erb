@@ -34,7 +34,7 @@
           <p>An Error Has Occured of Type <%= type %></p>
         </div>
         <div class="card-action">
-          <a href="#">dismiss</a>
+          <a href="/session/login">Retry</a>
         </div>
       </div>
     </div>
@@ -45,8 +45,8 @@
   
         <%= yield %>
 
-    <div class="container">
-      <footer class="branding" style="text-align: center;  width: 360px; padding-left: 125px">
+    <div class="container" style=text-align: center;>
+      <footer class="branding">
         <small>&copy; 2020 <strong>FindJoey - Maynard J. Hartman, Jr.</strong></small>
       </footer>
     </div>
@@ -61,9 +61,13 @@
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->
-    <script type="text/javascript" src="/materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="/pageRedirect.js"></script>
-    <script>
-      pageRedirect("/Sessions/login")
+    <script type="text/javascript" src="/materialize/js/materialize.min.js">
     </script>
+    <script>
+    (document).ready(function () {
+    // Handler for .ready() called.
+    window.setTimeout(function () {
+        location.href = "https://www.google.co.in";
+    }, 5000);
+    });</script>
 </html>

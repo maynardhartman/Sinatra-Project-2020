@@ -16,6 +16,23 @@ class ApplicationController < Sinatra::Base
     erb :"welcome"
   end
 
+  post "/sessions/login" do
+    if logged_in?
+      redirect :"/pets"
+    else
+      flash[:altert] = "Login Failed.  Try Again"
+      redirect :"/sessions/login"
+    end
+  end
+
+  get "/login" do
+    if !logged_in?
+      redirect "/sessions/login"
+    else
+      redirect "/pets"
+    end
+  end
+
   helpers do
     def logged_in?
       session[:user_id]
@@ -31,7 +48,7 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_not_logged_in
       if !logged_in?
-        redirect "/login"
+        redirect "/sessions/login"
       end
     end
   end
