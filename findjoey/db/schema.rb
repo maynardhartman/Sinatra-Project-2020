@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 2020_04_21_190825) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitidue"
+    t.float "latitude"
     t.float "longitude"
   end
 

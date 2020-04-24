@@ -17,6 +17,7 @@ gem "thin"
 gem "tux"
 gem "thor"
 gem "puma"
+gem "faker"
 
 group :test do
   gem "capybara"

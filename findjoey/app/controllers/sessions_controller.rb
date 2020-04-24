@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
   get "/login" do
-    erb "/sessions/login"
+    erb :"/sessions/login"
   end
 
   get "/sessions" do
-    erb :"/sessions/login"
+    erb "/sessions/login"
   end
 
   get "/sessions/login" do
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     #find the user in db
     user = User.find_by(user_email: params[:user_email])
     binding.pry
-    if user == nil
+    if !user
       redirect "/session/login"
     end
     # check the password
