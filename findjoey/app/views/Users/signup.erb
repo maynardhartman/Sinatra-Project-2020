@@ -1,55 +1,63 @@
 <div style="dispaly flex">
-    <form method="POST" action="/users/signup">
-    <div class="row">
-        <div class="input-field col s6">
-          <input id="fname" type="text" data-length="30">
-          <label for="fname">First Name:</label>
+    <img src="/images/dog-brown.jpg" />
+        <div class="row">
+            <div class="input-field">
+                <label for="fname">First Name:</label>
+                <input id="fname" type="text" name='fname' data-length="20">
+            </div>
+            <div class="input-field">
+                <label for="lname">Last Name:</label>
+                <input id="lname" type="text" name='lname' data-length='20'>
+            </div>
         </div>
-       <div class="input-field col s6">
-           <input id="lname" type="text" data-length="30">
-           <label for="lname">Last Name:</label>
-    </div>
-    <div class="row">
-        <div class="input-field col s6">
-           <input id="addr_1" type="text" data-length="30" name='addr_1'>
-           <label for="addr_1">Address 1:</label>
-        </div>
-        <div class="input-field col s6">
-           <input id="addr_2" type="text" data-length="30" name='addr_2'>
-           <label for="addr_2">Address 2:</label>
-        </div>
-    </div> 
+        <div class="row">
+            <div class="input-field">
+                <label for="addr_1">Address 1:</label>
+                <input id="addr_1" type="text" data-length="30" name='addr_1'>
+            </div>
+            <div class="input-field">
+                <label for="addr_2">Address 2:</label>
+                <input id="addr_2" type="text" data-length="30" name='addr_2'>
+            </div>
+        </div> 
 
     <div class="row">
-        <div class="input-field col s6">
-           <input id="city" type="text" data-length="25" name='city'>
+        <div class="input-field">
            <label for="city">City:</label>
+           <input id="city" type="text" data-length="25" name='city'>
         </div>
-        <div class="input-field col s6">
-           <input id="zipcode" type="text" data-length="10" name='zipcode'>
+        <div class="input-field">
            <label for="zipcode">Zipcode:</label>
+           <input id="zipcode" type="text" data-length="10" name='zipcode'>
         </div>
-        <div class='input-field col s6'>
-            <input id='state' type='text' data-length='10' name='state'>
+        <div class='input-field'>
             <label for-'state'>State:</label>
+            <input id='state' type='text' data-length='2' name='state'>
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s6">
-           <input id="email" type="text" data-length="50" name='email'>
+        <div class="input-field">
            <label for="email">Email:</label>
+           <input id="email" type="text" data-length="50" name='email'>
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s6">
-           <input id="phone_1" type="tel" data-length="12" name='phone_1'>
+        <div class="input-field">
            <label for="phone_1">Phone #1:</label>
+           <input id="phone_1" type="tel" data-length="20" name='phone_1'>
         </div>
-        <div class="input-field col s6">
-           <input id="phone_2" type="tel" data-length="12" name='phone_2'>
+        <div class="input-field">
            <label for="phone_2">Phone #2:>:</label>
+           <input id="phone_2" type="tel" data-length="20" name='phone_2'>
         </div>
     </div>
+    <div class='row'>
+        <div class='input-field'>
+            <label for='password'>Password:</label>
+            <input id='password' type="password" data-length='20' name='password'>
+        </div>
+    </div>
+    <div class="input-field">
         <p>
             <label>
                 <input type="checkbox" checked="checked" name='is_missing'/>
@@ -57,6 +65,7 @@
             </label>
         </p>
         <input type="submit" value="Signup">
+    </div>
     </form>
 </div>
   

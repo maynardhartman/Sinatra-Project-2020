@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
   get "/users/signup" do
-    redirect_if_logged_in
+    redirect_if_not_logged_in
     erb :'/users/signup'
   end
 
   post "/users/signup" do
+    @user = User.create(params)
     binding.pry
     if @user && @user.save
       session[:user_id] = @user.id
