@@ -1,21 +1,16 @@
 class PetsController < ApplicationController
-  get "/pets" do
-   if !logged_in?
-    flash[:error] = "Not Logged In!"
-    redirect '/sessions/login'
-   else
-    @pets = Pets.find_by(:owner_id params[:id])
-    binding.pry
-    erb :"/pets/show"
-   end
+  get "/pets/:id" do
+    if !logged_in?
+      flash[:error] = "Not Logged In!"
+      redirect "sessions/login"
+    else
+      @pets = Pets.find_by_id(:id)
+      erb :"/pets/:id/show"
+    end
   end
 
-  get '/pets/:id/show' do
-    @pet = Pets.find_by(:id params[:owner_id])
-    erb :'/pets/show'
+  get "/pets/:id/show" do
+    @pet = Pets.find_by_id(:id)
+    erb :'/pets/:id/show'
   end
-  helpers do
-
-  end
-
 end

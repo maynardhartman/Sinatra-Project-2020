@@ -10,55 +10,57 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_24_232701) do
+ActiveRecord::Schema.define(version: 2020_04_25_121141) do
 
   create_table "pets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "breed"
     t.integer "weight"
-    t.string "pet_temperament"
-    t.boolean "pet_chipped"
-    t.string "pet_chip_id"
-    t.boolean "pet_collared"
-    t.string "pet_color"
-    t.datetime "pet_went_missing"
+    t.string "temperament"
+    t.boolean "chipped"
+    t.string "chip_id"
+    t.boolean "collared"
+    t.string "color"
+    t.datetime "went_missing"
     t.datetime "date_found"
-    t.string "pet_images"
-    t.integer "user_id"
+    t.string "images"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.index ["users_id"], name: "index_pets_on_users_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.string "user_fname"
-    t.string "user_lname"
+    t.string "fname"
+    t.string "lname"
     t.string "addr_1"
     t.string "addr_2"
     t.string "city"
     t.string "state"
-    t.string "user_zipcode"
-    t.string "user_email"
-    t.string "user_phone_1"
-    t.string "user_phone_2"
+    t.string "zipcode"
+    t.string "email"
+    t.string "phone_1"
+    t.string "phone_2"
     t.boolean "is_missing"
     t.boolean "account_verified"
     t.boolean "account_suspended"
     t.string "suspension_reason"
     t.string "password_digest"
+    t.float "longitude"
+    t.float "latitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.float "latitude"
-    t.float "longitude"
   end
 
   create_table "zipcodes", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "zipcode"
-    t.float "latitude", limit: 53
-    t.float "longitude", limit: 53
+    t.float "latitude"
+    t.float "longitude"
     t.text "city"
     t.text "state"
     t.text "county"
     t.index ["zipcode"], name: "idx_zipcodes_zipcode", unique: true
   end
 
+  add_foreign_key "pets", "users", column: "users_id"
 end

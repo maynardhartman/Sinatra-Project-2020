@@ -9,15 +9,17 @@ class SessionsController < ApplicationController
 
   post "/sessions/login" do
     #find the user in db
-    user = User.find_by(user_email: params[:user_email])
+
+    user = User.find_by(email: params[:email])
     binding.pry
     if !:user
+      flash[:info] = "Not Logged In"
       redirect "/sessions/login"
     end
     # check the password
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      erb :"/pets/users_pets"
+      erb :"/pets/show"
     else
       redirect "/login"
     end

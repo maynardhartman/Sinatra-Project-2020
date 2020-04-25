@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       redirect :"/pets"
     else
-      flash[:error] = "Login Failed!"
+      flash[:notive] = "Not Logged In.  Redirecting"
       binding.pry
       redirect "/sessions/login"
     end
@@ -37,6 +37,10 @@ class ApplicationController < Sinatra::Base
 
   get "/sessions/signup" do
     erb :'/users/signup'
+  end
+
+  get "/pets" do
+    erb :"/pets/show"
   end
 
   helpers do

@@ -1,7 +1,8 @@
 <div class=container style="text-align: align-left">
     <h2>Find Joey</h2><br />
     <ul>Here are your pets.
-    <% @pets.each do |pet| %>
-    <li><a href="/pets/pet.id/delete"/>  <a href="/pets/pet.id/edit"/>  <%= pet %></li>
+    <%= @pets.each do |pet| %>
+    <li><a href="/pets/pet.id/delete"/>  <a href="/pets/pet.id/edit"/>  <%= pet.name %></li>
+    <% end %>
     </ul>
 </div>
