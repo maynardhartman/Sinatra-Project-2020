@@ -1,3 +1,58 @@
-<form method="POST" action="/users">
+<div style="dispaly flex">
+    <form method="POST" action="/users/signup">
+    <div class="row">
+        <div class="input-field col s6">
+          <input id="user_fname" type="text" data-length="30">
+          <label for="user_fname">First Name:</label>
+        </div>
+       <div class="input-field col s6">
+           <input id="user_lname" type="text" data-length="30">
+           <label for="user_lname">Last Name:</label>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+           <input id="addr_1" type="text" data-length="30" name='addr_1'>
+           <label for="addr_1">Address 1:</label>
+        </div>
+        <div class="input-field col s6">
+           <input id="addr_2" type="text" data-length="30" name='addr_2'>
+           <label for="addr_2">Address 2:</label>
+        </div>
+    </div> 
 
-</form>
+    <div class="row">
+        <div class="input-field col s6">
+           <input id="city" type="text" data-length="25" name='city'>
+           <label for="city">City:</label>
+        </div>
+        <div class="input-field col s6">
+           <input id="user_zipcode" type="text" data-length="10" name='user_zipcode'>
+           <label for="user_zipcode">Zipcode:</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+           <input id="user_email" type="text" data-length="50" name='user_email'>
+           <label for="user_email">Email:</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s6">
+           <input id="user_phone_1" type="tel" data-length="12" name='user_phone_1'>
+           <label for="user_phone_1">Phone #1:</label>
+        </div>
+        <div class="input-field col s6">
+           <input id="user_phone_2" type="tel" data-length="12" name='user_phone_2'>
+           <label for="user_phone_2">Phone #2:>:</label>
+        </div>
+    </div>
+        <p>
+            <label>
+                <input type="checkbox" checked="checked" name='is_missing'/>
+                <span>Has Pets Missing:</span>
+            </label>
+        </p>
+        <input type="submit" value="Signup">
+    </form>
+</div>
+  

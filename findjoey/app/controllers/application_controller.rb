@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 require "sinatra"
 require "sinatra/flash"
+require "pry"
 require "./config/environment.rb"
 
 class ApplicationController < Sinatra::Base
@@ -13,7 +14,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :"welcome"
+    erb :'welcome'
   end
 
   get "/login" do
@@ -28,9 +29,14 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       redirect :"/pets"
     else
-      flash[:notice] = "Login Failed.  Try Again"
+      flash[:error] = "Login Failed!"
+      binding.pry
       redirect "/sessions/login"
     end
+  end
+
+  get "/sessions/signup" do
+    erb :'/users/signup'
   end
 
   helpers do
