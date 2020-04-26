@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       redirect :"/pets"
     else
-      flash[:notive] = "Not Logged In.  Redirecting"
+      flash[:notice] = "Not Logged In.  Redirecting"
       binding.pry
       redirect "/sessions/login"
     end

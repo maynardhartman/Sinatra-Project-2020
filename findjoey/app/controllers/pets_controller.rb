@@ -11,6 +11,6 @@ class PetsController < ApplicationController
 
   get "/pets/:id/show" do
     @pet = Pets.find_by_id(:id)
-    erb :'/pets/:id/show'
+  erb :'/pets/:id/show'
   end
 end

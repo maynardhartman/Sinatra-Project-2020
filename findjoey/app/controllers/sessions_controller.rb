@@ -9,7 +9,6 @@ class SessionsController < ApplicationController
 
   post "/sessions/login" do
     #find the user in db
-
     user = User.find_by(email: params[:email])
     binding.pry
     if !:user
