@@ -246,7 +246,7 @@ table {
   body,
   html {
     height: 100%;
-    font-family: Arial, Helvetica, sans-serif, Amatic-sc;
+    font-family: Arial, Helvetica, sans-serif;
   }
   * {
     box-sizing: border-box;
@@ -310,14 +310,16 @@ table {
   .bg-img {
     /* The image used */
   
-    background-image: url("/images/dog-brown.jpg");
+    background-image: url("../images/dog_charging_camera.jpg");
     min-height: 380px;
+    height: auto;
+    width: auto;
     /* Center and scale the image nicely */
   
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
+    position: absolute;
   }
   /* Add styles to the form container */
   .container {

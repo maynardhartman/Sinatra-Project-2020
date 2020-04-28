@@ -9,8 +9,10 @@ class UsersController < ApplicationController
   end
 
   post "/users/signup" do
-    @user = User.create(params)
-    binding.pry
+    @user = User.create(:fname => params[:fname], :lname => params[:lname], :addr_1 => params[:addr_1], :addr_2 => params[:addr_2],
+    :city => params[:cite], :state => parmas[:state], :zipcode => params[:zipcode], :email => params[:email], :phone_1 => params[:phone_1],
+    :phone_2 => params[:phone_2], :is_missing => params[:is_missing])
+    
     if @user && @user.save
       session[:user_id] = @user.id
       redirect "/pets"
@@ -18,6 +20,7 @@ class UsersController < ApplicationController
       erb :'users/signup'
     end
   end
+
   get "/users/pets" do
     erb :"users/pets"
   end

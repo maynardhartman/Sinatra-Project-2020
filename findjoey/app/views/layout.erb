@@ -14,52 +14,31 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="../../public/materialize/css/materialize.min.css"  media="screen,projection"/>
-    <link type="text/css" rel='sytlesheet' href="../../public/materialize/css/styles.css" />
+    <link type="text/html" rel="stylesheet" href="../../public/materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel='sytlesheet' href="../../public/stylesheets/styles.css" />
   </head>
   <body>
 
     <style>
       body { text-align:center; }
     </style>
-
-  <div class="container" >
-  <div class="row">
-    <div class="col s12 m6">
-    <% flash.keys.each do |type| %>
-      <div data-alert class="flash <%= type %> alert-box radius">
-        <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title"><%= type %></span>
-            <p><%= type.message %></p>
-          </div>
-          <div class="card-action">
-            <a href="#">Dismiss</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <% end %>
-   </div>
-  </div>
-  
+   
     <%= yield %>
 
-        <footer class="page-footer">
-          <div class="container">
-            <div class="row col l6">
-                <h5 class="white-text">Find Joey</h5>
-                <p class="grey-text text-lighten-4">A website for reporting missing / found dogs.</p>
-            </div>
-          </div>
-          <div class="footer-copyright">
-            <p>&copy 2020 Find Joey - Maynard J. Hartman, Jr.</p>
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-          </div>
-        </footer>  
-  </div>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row col l6">
+           <h5 class="white-text">Find Joey</h5>
+             <p class="grey-text text-lighten-4">A website for reporting missing / found dogs.</p>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy 2020 Find Joey - Maynard J. Hartman, Jr.</p>
+          <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      </div>
+    </footer>  
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
   <!--[if lt IE 7]>
     <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
     <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>

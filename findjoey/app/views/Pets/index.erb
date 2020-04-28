@@ -1,0 +1,13 @@
+<h1>Welcome to FindJoey.  Select a destination below.</h1>
+<div class="bg-img">
+    <img src="../images/dog_charging_camera.jpg" height='600' width="800" >
+    <h2>Welcome</h2><p>List of your pets.</p>
+    <ul>
+        Pets:
+        <% @pets.each do |pet| %>
+        <li><%= pet %>     <a href="edit" target="self"> </a> <a href="/pets/delete" target="self">Delete</a></li>
+        <% end %>
+    </ul>
+    <a href="/users/edit" target="_self">Edit Your Profile</a><br />
+    <a href="/pets/edit" target="_self">Add/Delete/Edit your pets</a>    
+</div>
