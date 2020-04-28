@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require "sinatra"
-require "sinatra/flash"
 require "pry"
 require "./config/environment.rb"
 
@@ -10,11 +9,13 @@ class ApplicationController < Sinatra::Base
     set :views, "app/views"
     enable :sessions
     set :session_secret, "Skinny balinki long legs, big banana feet."
-    register Sinatra::Flash
+    #register Sinatra::Flash
   end
 
-  get "/" do
-    erb :'welcome'
+  get "/" do\
+
+    flash[:alert] = "Coming Up...Standby..."
+    erb :"/welcome"
   end
 
   get "/login" do
@@ -25,22 +26,12 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  post "/sessions/login" do
-    if logged_in?
-      redirect :"/pets"
-    else
-      flash[:notice] = "Not Logged In.  Redirecting"
-      binding.pry
-      redirect "/sessions/login"
-    end
-  end
-
   get "/sessions/signup" do
-    erb :'/users/signup'
+    erb :'/sessions/signup'
   end
 
   get "/pets" do
-    erb :"/pets/show"
+    erb :"/pets"
   end
 
   helpers do

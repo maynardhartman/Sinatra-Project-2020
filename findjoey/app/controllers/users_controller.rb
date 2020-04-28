@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  get "/users" do
+    redirect_if_not_logged_in
+  end
+
   get "/users/signup" do
     redirect_if_not_logged_in
     erb :'/users/signup'

@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
   post "/sessions/login" do
     #find the user in db
     user = User.find_by(email: params[:email])
-    binding.pry
     if !:user
       flash[:info] = "Not Logged In"
       redirect "/sessions/login"
@@ -18,14 +17,28 @@ class SessionsController < ApplicationController
     # check the password
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      erb :"/pets/show"
+      redirect "/pets/#{user.id}/show"
     else
-      redirect "/login"
+      redirect "/sessions/login"
     end
 
     get "/logout" do
       session.clear
       redirect "/login"
+    end
+  end
+
+  post "/sessions/signup" do
+    if logged_in?
+      flash[:notice] = "You are already logged in!"
+      redirect "/pets/index"
+    else
+      @user = User.new(params)
+      if @user && @user.save
+        session[:user_id] = @user.id
+      else
+        redirect "/sessions/signup" 
+      end
     end
   end
 end
