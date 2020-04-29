@@ -354,6 +354,14 @@ table {
     width: 100%;
     opacity: 0.9;
   }
+  .form-data {
+    padding: 10 10 10 10;
+  }
+  .standard-input {
+    display: flex;
+    text-align: left;
+    margin: 10 10 10 10;
+  }
   .btn:hover {
     opacity: 1;
   }

@@ -5,7 +5,8 @@
     <ul>
         Pets:
         <% @pets.each do |pet| %>
-        <li><%= pet %>     <a href="edit" target="self"> </a> <a href="/pets/delete" target="self">Delete</a></li>
+        <% if pet.name == nil ? pet.name = "none" : pet.name = pet.name%><%end%>
+        <li><%= pet.name %>  -   <a href="/pets/edit" >Edit</a> -  <a href="/pets/delete" >Delete</a></li>
         <% end %>
     </ul>
     <a href="/users/edit" target="_self">Edit Your Profile</a><br />

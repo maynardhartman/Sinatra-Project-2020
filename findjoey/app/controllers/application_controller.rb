@@ -23,14 +23,10 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get "/users/signup" do
-    erb :'users/signup'
-  end
-
   get "/pets" do
     if logged_in?
-      @pets = Pet.all
-    erb :"pets/index"
+      @pets = Pet.all.find_by_id(:id)
+    erb :"pets/show"
     else
       redirect "/users/login"
     end
@@ -51,12 +47,15 @@ class ApplicationController < Sinatra::Base
     end
 
     def find_by_user_id(id)
-      pet = Pet.find_by_id(:users_id session[:user_id])
+      if !logged_in?
+        redirect "/users/login"
+      end
+      pets = Pet.find_by_id(1)
       binding.pry
-      if !pet 
+      if !pets 
          return nil;
       else
-        return(pet)
+        return(pets)
       end
     end
 

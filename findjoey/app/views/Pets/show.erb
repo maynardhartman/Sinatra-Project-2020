@@ -1,4 +1,6 @@
 <div class=container style="text-align: align-left">
     <h2>Find Joey</h2><br /><br />
-    <h3>Pets:</h3>
+    <%%= @pets.each do |pet| %>
+        <h3>Pets: <%= pet.name %></h3>
+    <%end%>
 </div>
