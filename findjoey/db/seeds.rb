@@ -1,4 +1,3 @@
-require "faker"
 50.times do
   User.create(
     fname: Faker::Name.first_name,
@@ -16,11 +15,11 @@ require "faker"
     account_suspended: 0,
     suspension_reason: "Actount Active",
     longitude: Faker::Address.longitude,
-    latitude: Faker::Address.latitude,
-  )
+    latitude: Faker::Address.latitude)
 end
-2.times do
+10.times do
   Pet.create(
+    name: Faker::Name.first_name,
     breed: "dalmation",
     weight: 35,
     temperament: "Mellow. A little nippy around men.",
@@ -30,9 +29,12 @@ end
     color: "white with black spots",
     went_missing: "2020-04-10 13:25:20",
     date_found: "2020-04-15 15:00:00",
-    user_id: 20,
+    users_id: Faker::Number.within(range: 1..50)
   )
+end
+10.times do
   Pet.create(
+    name: Faker::Name.first.name,
     breed: "Irish Setter",
     weight: 40,
     temperament: "Very Friendly. Will get in anyones car.",
@@ -42,6 +44,6 @@ end
     color: "rust",
     went_missing: "2019-9-23 18:00.00",
     date_found: "2019-9-25 20:00:00",
-    user_id: 15,
+    users_id: Faker::Number.within(range: 1..50)
   )
 end

@@ -13,6 +13,7 @@ class CreatePets < ActiveRecord::Migration[5.2]
       t.datetime :went_missing
       t.datetime :date_found
       t.string :images
+      
       t.timestamps
     end
   end

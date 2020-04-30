@@ -365,4 +365,8 @@ table {
   .btn:hover {
     opacity: 1;
   }
+  .holding-window {
+    height: auto;
+    width: auto;
+  }
 }

@@ -1,5 +1,5 @@
 class Pet < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :users
   validates :chipped, presence: true
   validates :chip_id, presence: true, uniqueness: true, numericality: true
   validates :temperament, presence: true

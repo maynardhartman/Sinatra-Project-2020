@@ -23,13 +23,47 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  
+
   get "/pets" do
     if logged_in?
       @pets = Pet.all.find_by_id(:id)
-    erb :"pets/show"
+    erb :"/pets/show"
     else
       redirect "/users/login"
     end
+  end
+
+get "/users/login" do
+  if logged_in?
+    redirect :"show.erb"
+  end
+
+  @user = User.find_by(email: paramas[:email])
+  if @user && @user.authenticate(params[:password])
+    session[:user_id] == @user.id 
+    redirect :"show"
+  else
+      erb :"/users/login.erb"
+  end
+end
+
+get "/users/signup" do
+  if logged_in? 
+     puts("You are already logged in you can only register once")
+    redirect "show"
+  else
+    @user = User.create(params)
+      if @user
+        @user.save 
+      end
+    redirect "users/show"
+  end
+end
+
+  get "/logout" do
+    session.clear
+    erb :"/users/logout"
   end
 
   helpers do
@@ -43,22 +77,20 @@ class ApplicationController < Sinatra::Base
 
     def current_owner_of_pet
       @current_owner_of_pet ||= Pet.find_by(user_id: session[:user_id])
-      binding.pry
     end
 
     def find_by_user_id(id)
       if !logged_in?
         redirect "/users/login"
       end
-      pets = Pet.find_by_id(1)
-      binding.pry
+      @pets = Pet.find_by_id(1)
       if !pets 
          return nil;
       else
-        return(pets)
+        return(@pets)
       end
     end
-
+   
     def redirect_if_not_logged_in
       if !logged_in?
         redirect "/sessions/login"

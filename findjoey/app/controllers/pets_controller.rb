@@ -11,23 +11,35 @@ class PetsController < ApplicationController
     if !logged_in?
       redirect "/users/login"
     else
-      @pets = Pet.find_by_id(1) #change back to params[:id]
+      @pets = Pet.find_by_id(:users_id) #change back to params[:id]
       redirect "/pets/show"
     end
   end
 
-  get "/pets/:id/" do
-    #get pet from db and dispaly it's attributes
-    @pets = pets.find_by_user_id(:id) 
-    erb :"show"#change back to params[:id]
-  end
-
   get "/pets/show" do
     if !logged_in?
-      redirect "/users/login" 
+      erb :"users/login" 
     else
-      @pets = Pet.find_by_id(:user_id])  # change back to params[:id]
-      erb :"show"
+      @pets = Pet.find_by(users_id: :current_user.id)  # change back to params[:id]
+      binding.pry
+      if pets
+        erb :"pets/show"
+      else
+        @pets.users_id = 1 #dummy value to make work 
+        erb :"pets/show"
      end
+    end
+  end
+
+  delete "/pets/:id" do
+    if !logged_in?
+      erb :"/usr/login"
+    else
+      @pet = Pet.find_by_id(:users_id)
+      if @pet.users_id == current_user.id
+        binding.pry
+        @pet.destroy
+      end
+    end 
   end
 end

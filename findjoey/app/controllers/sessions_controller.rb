@@ -16,14 +16,14 @@ class SessionsController < ApplicationController
     if logged_in?
       erb :"/pets/:id"
     else
-      user = User.new(:fname => params[:fname], :lname => params[:lname], :addr_1 => params[:addr_1], :addr_2 => params[:addr_2],
+      @user = User.new(:fname => params[:fname], :lname => params[:lname], :addr_1 => params[:addr_1], :addr_2 => params[:addr_2],
         :city => params[:cite], :state => parmas[:state], :zipcode => params[:zipcode], :email => params[:email], :phone_1 => params[:phone_1],
         :phone_2 => params[:phone_2], :is_missing => params[:is_missing])
-      binding.pry
-      if user && user.save
-        session[:user_id] = user.id
+      if @user && @user.save
+        session[:user_id] = @user.id
+        erb :"/pets/show"
       else
-        redirect "/sessions/signup" 
+        redirect "/users/signup" 
       end
     end
   end

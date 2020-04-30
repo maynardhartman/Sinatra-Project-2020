@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_121141) do
+ActiveRecord::Schema.define(version: 2020_04_29_212421) do
 
   create_table "pets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
@@ -23,11 +23,10 @@ ActiveRecord::Schema.define(version: 2020_04_25_121141) do
     t.string "color"
     t.datetime "went_missing"
     t.datetime "date_found"
-    t.string "images"
+    t.string "image"
+    t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "users_id"
-    t.index ["users_id"], name: "index_pets_on_users_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -62,5 +61,4 @@ ActiveRecord::Schema.define(version: 2020_04_25_121141) do
     t.index ["zipcode"], name: "idx_zipcodes_zipcode", unique: true
   end
 
-  add_foreign_key "pets", "users", column: "users_id"
 end
