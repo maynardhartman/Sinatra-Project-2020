@@ -18,28 +18,17 @@ class PetsController < ApplicationController
 
   get "/pets/show" do
     if !logged_in?
-      erb :"users/login" 
-    else
-      @pets = Pet.find_by(users_id: :current_user.id)  # change back to params[:id]
-      binding.pry
-      if pets
-        erb :"pets/show"
-      else
-        @pets.users_id = 1 #dummy value to make work 
-        erb :"pets/show"
-     end
+      erb :"/users/login"
     end
-  end
-
-  delete "/pets/:id" do
-    if !logged_in?
-      erb :"/usr/login"
+    @user = User.find_by(email: params[:email])
+    binding.pry
+    if @user && @user.authenticate(parmas[:email])
+      binding.pry
+      session[:user_id] = @user.id
+      @pets = Pet.find_by(users_id: :user.id)
+      redirect "/pets/show"
     else
-      @pet = Pet.find_by_id(:users_id)
-      if @pet.users_id == current_user.id
-        binding.pry
-        @pet.destroy
-      end
-    end 
+      redirect "/users/login"
+    end
   end
 end
