@@ -23,6 +23,25 @@
       body { text-align:center; }
     </style>
    
+  <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <% flash.keys.each do |type| %>
+            <div data-alert class="flash <%= type %> alert-box radius">
+              <span class="card-title">Alert</span>
+              <p>There has been an error or info alert. With the following message:
+              <%= type %></p>
+            </div>
+            <div class="card-action">
+              <a href="#" class="close">&times;</a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
     <%= yield %>
 
     <footer class="page-footer">

@@ -9,10 +9,10 @@ class PetsController < ApplicationController
 
   get "/pets/:id" do
     if !logged_in?
-      redirect "/users/login"
+      redirect "/session/login"
     else
       @pets = Pet.find_by_id(:users_id) #change back to params[:id]
-      redirect "/pets/show"
+      redirect "/session/show"
     end
   end
 
@@ -28,7 +28,7 @@ class PetsController < ApplicationController
       @pets = Pet.find_by(users_id: :user.id)
       redirect "/pets/show"
     else
-      redirect "/users/login"
+      redirect "/session/login"
     end
   end
 end

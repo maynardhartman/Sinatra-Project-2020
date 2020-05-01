@@ -1,36 +1,39 @@
 <div class="bg-img"> 
-  <form action="/users/signup" class="container" method="post">
+  <form action="/sessions/signup" class="container" method="post">
     <h1>FindJoey - Login</h1>
     <label for="fname"><b>First Name:</b></label>
     <input type="text" placeholder="Enter First Name" name="fname" required>
 
+    <label for="lname"><B>Last Name:</b><label>
+    <input tyep="text" placeholder="Enter Last Name" name="lname" required><br /><br />
+
     <label for="password"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="password" required>
+    <input type="password" placeholder="Enter Password" name="password" required><br /><br />
 
     <label for="email"><b>Email:<b/></label>
-    <input type="text" placeholder="Enter Email:" name="email" required><br />
+    <input type="text" placeholder="Enter Email:" name="email" required><br /><br /><br />
 
     <label for="addr_1"><b>Address:<b/></label>
     <input type="text" placeholder="Address #1" name="addr_1" required>
 
     <label for="addr_2"><b>Address:><b/></label>
-    <input type="addr_2" placeholder="Address #2" name="addr_2"><br/>
+    <input type="addr_2" placeholder="Address #2" name="addr_2"><br /><br />
     
     <label for="city"><b>City:><b/></label>
     <input type="city" placeholder="City" name="city">
     <label for="state"><b>State:><b/></label>
     <input type="state" placeholder="ST" name="state">
     <label for="zipcode"><b>Zip:><b/></label>
-    <input type="zipcode" placeholder="Zip" name="zipcode"><br/>
+    <input type="zipcode" placeholder="Zip" name="zipcode"><br/><br />
 
     <label for="phone_1"><b>Phone:><b/></label>
-    <input type="phone_1" placeholder="Phone:" name="phone_2"><br/>
+    <input type="phone_1" placeholder="Phone:" name="phone_2">
 
     <label for="phone_2"><b>Phone:><b/></label>
-    <input type="phone_2" placeholder="Phone:" name="phone_2"><br/>
+    <input type="phone_2" placeholder="Phone:" name="phone_2"><br/><br />
 
         <label for="is_missing"><b>Has Missing Dog(s)?:</label>
-        <input type="checkbox" name="is_missing" checked="true"><br />    
+        <input type="checkbox" name="is_missing" checked="true"><br /><br />    
 
     <button type="submit" class="btn">Signup</button>
   </form>
