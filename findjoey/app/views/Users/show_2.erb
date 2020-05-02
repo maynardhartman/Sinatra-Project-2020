@@ -1,14 +1,14 @@
 <div style"width: auto;height: auto;">
     <div class="container" style="text-align: center;">
         <img src="../images/dog-dalmation.jpg"></img>
-    </div>
-    <div class="container" style="text-align: center;"> >
-        <hr>
-        <h2>Listing of all currently <b>missing</b> dogs.</h2>
-        <% mising = Pet.sum(:is_missing) %>
-        <ul>
-            <li><%= DateTime.new();%> - There are <%= missing %> dogs reported.</li>
-        </ul>   
-        <% end %>
+    
+        <div class="container" style="text-align: center;"> >
+            <hr>
+            <h2>Listing of all currently <b>missing</b> dogs.</h2>
+            <% missing = Pet.sum(:is_missing) %>
+            <ul>
+                <li><%= DateTime.new();%> - There are <%= missing %> dogs reported.</li>
+            </ul>   
+        </div>
     </div>
 </div>

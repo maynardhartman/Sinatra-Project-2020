@@ -1,15 +1,13 @@
-# frozen_string_literal: true
 require "sinatra"
 require "pry"
-require "./config/environment.rb"
+require "bcrypt"
 
-class ApplicationController < Sinatra::Base
+class ApplicationController < Sinatra::Base # frozen_string_literal: true
   configure do
     set :public_folder, "public"
     set :views, "app/views"
     enable :sessions
     set :session_secret, "Skinny balinki long legs, big banana feet."
-    register Sinatra::Flash
   end
 
   get "/" do
@@ -20,19 +18,25 @@ class ApplicationController < Sinatra::Base
     redirect "/sessions/login"
   end
 
+  get "/sessions/signup" do
+    erb :"/sessions/signup"
+  end
+
+
   get "/sessions/login" do
     erb :"/sessions/login"
   end
   
+  get "/sessions/show" do
+    erb :"/sessions/show"
+  end
+
   get "/logout" do
     session.clear
     redirect "/logout"
   end
 
-  get "/signup" do
-    erb :"/sessions/signup"
-  end
-
+  
   helpers do
     def logged_in?
       !!session[:user_id]
@@ -48,11 +52,11 @@ class ApplicationController < Sinatra::Base
 
     def redirect_if_not_logged_in
       if !logged_in?
-        redirect "/login"
+        redirect "/sessions/login"
       end
     end
 
-    def redorect_of_logged_in
+    def redirect_if_logged_in
       if logged_in?
         redirect "/pets"
       end

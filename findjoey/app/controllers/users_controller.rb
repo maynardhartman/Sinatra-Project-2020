@@ -38,7 +38,4 @@ class UsersController < ApplicationController
     redirect  "/pets/show"
   end
 
-  get "/users/pets" do
-    redirect "/pets/"
-  end
 end

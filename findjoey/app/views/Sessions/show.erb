@@ -1,0 +1,20 @@
+<h1>Welcome to FindJoey</h1>
+<div class="bg-img">
+    <img class="holding-img" src="../images/dog_charging_camera.jpg">
+</div>
+<div class="container">
+    <h2><p>List of your pets.</p></h2>
+    <ul width: 200px; text-align: center>
+        <% @pets = load_pets; %>
+        <% @pets.each do |pet| %>
+        <% if pet.name.to_s == "" %>
+        <% pet.name = "none" else %>
+        <% pet.name = pet.name %><% end %>
+        <li><%= pet.name %>  <a href="/pets/#{pet.id}/edit" target="_self">Edit<a/>   <a href="/pets/#{pet.id}/delete" target="_self">Delete</a> <a href="/pets/:id/new" target="self">Add</a></li>
+        <% end %>
+    </ul>
+</div>
+<div class="container">
+    <a href="/users/edit" target="_self">Edit Your Profile</a><br />
+    <a href="/pets/:id/edit" target="_self"></a>    
+</div>
