@@ -5,7 +5,7 @@ class PetsController < ApplicationController
     end
   end
 
-  get "/pets/:id" do
+  get "/pets/:id/new" do# add new pet to user account do
     if !logged_in?
       redirect "/sessions/login"
     else

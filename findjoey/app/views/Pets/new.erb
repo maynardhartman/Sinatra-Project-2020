@@ -1,3 +1,21 @@
 <div class="responsive-img">
-    <img scr="../images/dog-3-puppies.jpg" >
-<div>
+    <img scr="../images/dog-3-puppies.jpg" alt="Three Puppies Looking Forlorn">
+<div class="container">
+    <div>
+        <form action="/pets/#{:id}/new" method="POST" name="name">
+            <label for="name" >Name:</label>
+            <input type="text" name="name">
+
+            <label for="breed">Breed:</label>
+            <input type="text" name="breed">
+
+            <label for="weight">Weight:</label>
+            <input type="number" name="weight">
+
+            <label for="temperament">Temperament:</label>
+            <input type=text" name="temperament">
+        </form>
+        <input type="submit" value="Add Pet">
+    </div>
+  </div>
+</div>

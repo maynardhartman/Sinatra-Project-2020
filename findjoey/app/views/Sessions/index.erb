@@ -1,9 +1,9 @@
-<h1>Welcome to Find Joey.  Select a destination below.</h1>
+<h1>Welcome to Find Joey</h1>
 <div class="bg-img">
     <img class=holding-img src="../images/dog_charging_camera.jpg" height='600' width="800" >
 </div>
 <div class="container">
-    <h2>Welcome<p>List of your pets.</p></h2>
+    <h2>Welcome<p>Here's a List of your pets.</p></h2>
     <ul width: 200px; text-align: left>
     <% @pets.each do |pet| %>
         <% if pet.name == nil ? pet.name = "none" : pet.name = pet.name%><%end%>
