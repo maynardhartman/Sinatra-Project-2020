@@ -1,8 +1,10 @@
-<div class="responsive-img">
-    <img scr="../images/dog-3-puppies.jpg" alt="Three Puppies Looking Forlorn">
 <div class="container">
-    <div>
-        <form action="/pets/#{:id}/new" method="POST" name="name">
+    <h1>FindJoey</h1>
+    <h2>Add a Pet</h2>
+<div class="responsive-img">
+    <img src="../images/dog-brown.jpg" alt="A Big Brown Dog">
+    </div class="menu">
+        <form action="/pets/new" method="POST">
             <label for="name" >Name:</label>
             <input type="text" name="name">
 
@@ -10,12 +12,31 @@
             <input type="text" name="breed">
 
             <label for="weight">Weight:</label>
-            <input type="number" name="weight">
+            <input type="number" name="weight" size="4"><br />
 
             <label for="temperament">Temperament:</label>
             <input type=text" name="temperament">
-        </form>
-        <input type="submit" value="Add Pet">
+
+            <label for="chipped">Chipped:</label>
+            <input type="checkbox" name="chipped" checked>
+            <label for="collared">Collared:</label>
+            <input type="checkbox" name="collared" checked><br />
+            
+            <label for="chip_id">Chip ID:</label>
+            <input type="text" name="chip_id">
+
+            <label for="color">Color:</label>
+            <input type="text" name="color"><br />
+
+            <label for="went_missing">Date Went Missing:</label>
+            <input type="date" name="went_missing">
+
+            <label for="date_found">Date Found:</label>
+            <input type="date" name="date_found"><br />
+
+            <label for="image">URL of image</label>
+            <input type="url" name="image"><br />
+            <input type="submit" value="Add Pet">
+        </form>  
     </div>
-  </div>
 </div>
