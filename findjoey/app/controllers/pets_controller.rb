@@ -3,7 +3,7 @@ class PetsController < ApplicationController
     if !logged_in?
       redirect "/sessions/login"
     end
-    erb :"/pets/show"
+    erb :"/pets/show_2"
   end
 
   get "/pets/choice" do
