@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base # frozen_string_literal: true
   end
 
   get "/login" do
-    redirect "/session/login"
+    erb :"/session/login"
   end
 
   get "/session/signup" do
