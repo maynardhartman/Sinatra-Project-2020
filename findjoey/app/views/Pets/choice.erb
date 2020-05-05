@@ -1,7 +1,17 @@
 <h1>Find Joey&copy</h1>
-<div class="container"
-    <div>
+<div class="container"/>
+  <div>
         <img src="../images/dog-dalmation.jpg" />
     </div>
-    <h3>Pets: Add/Delete/Edit</h3>
+        <div class="container">
+            <p>    Name:           id:          owner: </p>
+            <% @pets.each do |pet| %>
+              <h3>  <%= pet.name %> - <%= pet.id %> - <%= pet.users_id %></h3><hr/>
+            <% end %>
+        </div>
+    <div>
+        <a href="/pets/new" target="_self">Add  </a><a href="/pets/delete" target="_self">Delete  </a><a href="/pets/edit" target="_self">Edit</a>
+    
+    </div>
+  </div>
 </div>

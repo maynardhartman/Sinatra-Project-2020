@@ -50,7 +50,7 @@ dl,
 dt,
 dd,
 ol,
-ul,
+
 li,
 fieldset,
 form,
@@ -134,6 +134,10 @@ q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+
+ul {
+  padding: 0px;
 }
 
 @media screen {
@@ -264,12 +268,14 @@ table {
         background-image: url("../images/sad_puppy.jpg");
       
         min-height: 380px;
-      
+        max-width: 600px;
         /* Center and scale the image nicely */
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
         position: relative;
+        height: auto;
+        width: auto%;
       }
       
       /* Add styles to the form container */
@@ -323,7 +329,7 @@ table {
       .bg-img {
         /* The image used */
         background-image: url("../images/dog_charging_camera.jpg");
-      
+        max-width: 600px;
         min-height: 380px;
         height: auto;
         width: auto;
@@ -392,9 +398,10 @@ table {
 
       ul.aligned {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         text-align: left;
         margin: 30;
+        padding: 0px;
       }
 
       div.menu-items {
@@ -419,5 +426,10 @@ table {
         height: auto;
         width: 400px;
         flex-direction: row;
+      }
+
+      img.holding-image {
+        max-width: 600px;
+        max-height: 600px;
       }
 }

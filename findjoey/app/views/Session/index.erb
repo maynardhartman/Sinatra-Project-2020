@@ -3,15 +3,15 @@
     <img class=holding-img src="../images/dog_charging_camera.jpg" height='600' width="800" >
 </div>
 <div class="container">
-    <h2>Welcome<p> <%= user.name%>. Here's a List of your pets.</p></h2>
+    <h2>Welcome<p> <%= user.name %>. Here's a List of your pets.</p></h2>
     <ul width: 200px; text-align: left>
     <% @pets.each do |pet| %>
-        <% if pet.name == nil ? pet.name = "none" : pet.name = pet.name%><%end%>
+        <% if pet.name == nil ? pet.name = "none" : pet.name = pet.name %><% end %>
         <li><%= pet.name %></li>
     <% end %>
-    <%end%>
+    <% end %>
     </ul>
 </div>
     <a href="/users/edit" target="_self">Edit Your Profile</a><br />
-    <a href="sessions/logout" target="_self">Logout</a> 
+    <a href="session/logout" target="_self">Logout</a> 
 </div>

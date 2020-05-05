@@ -15,20 +15,19 @@ class ApplicationController < Sinatra::Base # frozen_string_literal: true
   end
 
   get "/login" do
-    redirect "/sessions/login"
+    redirect "/session/login"
   end
 
-  get "/sessions/signup" do
-    erb :"/sessions/signup"
+  get "/session/signup" do
+    erb :"/session/signup"
   end
 
-
-  get "/sessions/login" do
-    erb :"/sessions/login"
+  get "/session/login" do
+    erb :"/session/login"
   end
-  
-  get "/sessions/show" do
-    erb :"/sessions/show"
+
+  get "/session/show" do
+    erb :"/session/show"
   end
 
   get "/pets" do
@@ -48,7 +47,6 @@ class ApplicationController < Sinatra::Base # frozen_string_literal: true
     redirect "/logout"
   end
 
-  
   helpers do
     def logged_in?
       !!session[:user_id]
@@ -64,7 +62,7 @@ class ApplicationController < Sinatra::Base # frozen_string_literal: true
 
     def redirect_if_not_logged_in
       if !logged_in?
-        redirect "/sessions/login"
+        redirect "/session/login"
       end
     end
 

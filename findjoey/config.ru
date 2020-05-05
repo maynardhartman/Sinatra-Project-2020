@@ -5,7 +5,6 @@ require "faker"
 require "./config/environment.rb"
 
 run ApplicationController
-use SessionsController
+use SessionController
 use UsersController
 use PetsController
-
