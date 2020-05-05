@@ -3,6 +3,7 @@ class PetsController < ApplicationController
     if !logged_in?
       redirect "/sessions/login"
     end
+    erb :"/pets/show"
   end
 
   get "/pets/new" do# add new pet to user account do
@@ -35,34 +36,30 @@ class PetsController < ApplicationController
     if @user && @user.authenticate(parmas[:email])
       session[:user_id] = @user.id
       @pets = Pet.where(users_id: @user.id).to_a
-      binding.pry
-      redirect "/pets/show"
+      erb :"/pets/show"
     else
       redirect "/sessions/login"
     end
   end
 
-  post "/pets/:id/edit" do
-    @pets = Pet.find_by_id(:id)
-    binding.pry
-    @user = current_user
-    user.users_id = @user.id
+  get "/pets/edit" do
+    @pets = Pet.where(users_id: session[:user_id])
+    erb :"/pets/edit" 
+  end
 
-  end 
-
-  delete "/pets/:id/delete" do
+  post "/pets/delete" do
     if logged_in?
-      @owner = @current_user
-      if @pet.find_by_id(params[:id]) && pet.users_id == @owner
-        binding.pry
-        @pet.destroy
+      owner = current_user
+      @pet = Pet.find_by(users_id: owner.id, name: params[:name])
+      if !@pet  #didnt find pet
+          redirect "/pets/show"
       else
-        puts "Pet Not Found"
+          @pet.destroy  
       end
-        @pets = Pet.where(users_id: @user.id).to_a
-        erb :"index"
+      @pets =  Pet.where(users_id: owner.id).to_a 
+      erb :"/pets/show" 
     end
-    redirect "/sessions/login"
+      redirect "/sessions/login"
   end
 
 

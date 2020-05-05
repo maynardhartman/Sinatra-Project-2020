@@ -1,0 +1,12 @@
+# erb file for deleting pets
+
+<div class="container">
+    <image src="../images/pet.jpg" alt="A little puppy with say expression.">
+    <div class="menu-items" height=250px; width="600px">
+        <form class="item" method="POST" action="/pets/delete" id="delete">
+            <label for="name" >Enter Pet Name To Delete:</label>
+            <input method="POST" type="text" name="name" required>
+        </form>
+            <%= @pets.name]%> Delete this pet?><a href="/pets/delete">Yes</a>
+    </div>
+</div>

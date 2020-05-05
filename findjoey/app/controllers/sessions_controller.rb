@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   
   get "/session/login" do
     if logged_in?
-      @pets = Pet.where(users_id: @user.id).to_a
+      @pets = Pet.where(users_id: current_user).to_a
       erb :"/pets/index"
     else
       @user = User.where(email: params[:email])
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
    
   get "/logout" do
     session.clear
-      erb :"logout"
+      erb :"/sessions/login"
   end
 
   get "/sessions/signup" do

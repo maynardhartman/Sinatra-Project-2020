@@ -369,14 +369,29 @@ table {
     height: auto;
     width: auto;
   }
-  ul .aligned {
+  ul.aligned {
     display: flex;
     justify-content: space-between;
     text-align: left;
     margin: 30;
   }
-  .menu {
+  div.menu-items {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    height: auto;
+    width: 300x;
+    align-items: flex-start;
+    align-content: stretch;
+  }
+  li {
+    display: flex;
+    flex-direction: row;
+  }
+  form.item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-content: stretch;
+    height: auto;
+    width: 400px;
   }
 }

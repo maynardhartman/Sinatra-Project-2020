@@ -31,6 +31,18 @@ class ApplicationController < Sinatra::Base # frozen_string_literal: true
     erb :"/sessions/show"
   end
 
+  get "/pets" do
+    erb :"/pets/new"
+  end
+
+  get "/pets/delete" do
+    erb :"/pets/delete"
+  end
+
+  get "/pets/edit" do
+    erb :"/pets/edit"
+  end
+
   get "/logout" do
     session.clear
     redirect "/logout"

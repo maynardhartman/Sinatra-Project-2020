@@ -1,10 +1,12 @@
 <div class="container">
     <h1>Edit Pet</h1>
     <img class="responsive-img" src="../images/sad_puppy.jpg">
-    <div class="edit-form" styles="height: auto; width: auto; display: flex">
-        <form action="/pets/:id/edit" method="POST">
-            <label for="fname">
-            <input type="text" name="fname" value=user.fname>
+    <div class="edit-form">
+        <% @pets.each do |pet| %>
+        <form class="menu-items" action="/pets/edit" method="POST">
+            <label for="name"> <%= pet.name %> </label>
+            <input type="text" name="name" value=<%pet.name%>%>
         </form>
+        <%end%>
     </div>
 </div>
