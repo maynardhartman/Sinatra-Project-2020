@@ -5,7 +5,6 @@ class SessionController < ApplicationController
       session[:user_id] = @user.id
       @pets = Pet.where(users_id: @user.id).to_a
       @missing = Pet.count("is_missing")
-      binding.pry
       erb :"/pets/index"
     else
       # redirect to our login page

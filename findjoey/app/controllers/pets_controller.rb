@@ -31,7 +31,7 @@ class PetsController < ApplicationController
     if !@pet
       @pet = Pet.create(name: params[:name], breed: params[:breed], weight: params[:weight], temperament: params[:temperament], chipped: params[:chipped],
                         chip_id: params[:chip_id], collared: params[:collared], color: params[:color], went_missing: params[:went_missing], date_found: params[:date_found],
-                        image: params[:image], is_missing: params[:is_missing])
+                        image: params[:image], is_missing: params[:is_missing], users_id: session[:user_id])
       @pets = Pet.where(users_id: session[:user_id])
       @missing = Pet.sum(:is_missing)
       erb :"/pets/show"
