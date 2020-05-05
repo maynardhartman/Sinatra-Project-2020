@@ -1,12 +1,13 @@
 <h1>Welcome to Find Joey&copy</h1>
 <div class="bg-img">
-    <img class-holding-img src="../images/dog_charging_camera.jpg" height='600' width="800" >
+    <img class-holding-img src="../images/dog_charging_camera.jpg"/ >
 </div>
 <div class="container">
+    <h2>There Are a Total of ></h2> <%= @missing %> <h2>Dogs Reported Missing./h2>
     <h2><p>Here's a List of your pets.</p></h2>
     <ul class="aligned" width: 200px;>
         <% @pets.each do |pet| %>
-        <% if pet.name == nil ? pet.name = "none" : pet.name = pet.name%><%end%>
+        <% if pet.name == nil ? pet.name = "none" : pet.name = pet.name %><% end %>
         <div class="menu-items">
             <%= pet.name %>
         <% end %>
@@ -14,6 +15,6 @@
     </ul>
 </div>
     <a href="/users/edit" target="_self">Edit Your Profile</a><br />
-    <a href="/pets" target="_self">Add/Delete/Edit   Pets</a>
+    <a href="/pets/choice" target="_self">Add/Delete/Edit   Pets</a><br />
     <a href="/logout" target="_self">Logout</a>    
 </div>

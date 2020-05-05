@@ -6,10 +6,14 @@ class PetsController < ApplicationController
     erb :"/pets/show"
   end
 
-  get "/pets/new" do# add new pet to user account do
+  get "/pets/choice" do
+    erb :"/pets/choice"
+  end
+
+  get "/pets/new" do # add new pet to user account do
     if !logged_in?
       redirect "/sessions/login"
-    else 
+    else
       @pets = Pet.where(users_id: session[:user_id])
       erb :"/pets/new"
     end
@@ -21,9 +25,10 @@ class PetsController < ApplicationController
     end
     if !@pet
       @pet = Pet.create(name: params[:name], breed: params[:breed], weight: params[:weight], temperament: params[:temperament], chipped: params[:chipped],
-        chip_id: params[:chip_id], collared: params[:collared], color: params[:color], went_missing: params[:went_missing], date_found: params[:date_found],
-        image: params[:image])
+                        chip_id: params[:chip_id], collared: params[:collared], color: params[:color], went_missing: params[:went_missing], date_found: params[:date_found],
+                        image: params[:image], is_missing: params[:is_missing])
       @pets = Pet.where(users_id: session[:user_id])
+      @missing = Pet.sum(:is_missing)
       erb :"/pets/show"
     end
   end
@@ -44,24 +49,23 @@ class PetsController < ApplicationController
 
   get "/pets/edit" do
     @pets = Pet.where(users_id: session[:user_id])
-    erb :"/pets/edit" 
+    erb :"/pets/edit"
   end
 
   post "/pets/delete" do
     if logged_in?
       owner = current_user
       @pet = Pet.find_by(users_id: owner.id, name: params[:name])
-      if !@pet  #didnt find pet
-          redirect "/pets/show"
+      if !@pet #didnt find pet
+        redirect "/pets/show"
       else
-          @pet.destroy  
+        @pet.destroy
       end
-      @pets =  Pet.where(users_id: owner.id).to_a 
-      erb :"/pets/show" 
+      @pets = Pet.where(users_id: owner.id).to_a
+      erb :"/pets/show"
     end
-      redirect "/sessions/login"
+    redirect "/sessions/login"
   end
-
 
   get "/pets/index" do
     erb :"/pets/index"
